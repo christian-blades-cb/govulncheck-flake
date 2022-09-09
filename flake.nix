@@ -43,5 +43,7 @@
             default = govulncheck;
           };
         }
-    );
+    ) // {
+      overlay = final: prev: { inherit (self.packages.${prev.stdenv.hostPlatform.system}) govulncheck; };
+    };
 }
